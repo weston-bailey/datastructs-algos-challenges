@@ -1,6 +1,8 @@
-# check if a list is sorted
-def is_sorted(ls):
-  for i in range(len(ls) - 1):
-    if ls[i] > ls[i + 1]:
-      return False
-  return True
+from unittest import TestCase, main
+
+class TestIsSorted(TestCase):
+  def test_sorted_list(self): 
+    self.assertEqual(1, 1)
+
+if __name__ == '__main__':
+  main()
