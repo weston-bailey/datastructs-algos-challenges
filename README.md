@@ -2,7 +2,7 @@
 
 This is a repo of algorithms and data structures for self study.
 
-The algorithms/data structures are organized by type and then language
+The algorithms/data structures are organized by langauge and then type
 
 The code challenges are organized by their origin (hackerrank, leet code, code wars, etc) and then their programming langauge. The code challenges that use data structures import them from their respective folders. 
 
