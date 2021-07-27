@@ -8,13 +8,13 @@ The code challenges are organized by their origin (hackerrank, leet code, code w
 
 ## Langauges and Testing
 
-C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
+testing is done with the [makefile](https://www.gnu.org/software/make/)
 
-Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
-
-http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide
-
-Python uses [unittest](https://docs.python.org/3/library/unittest.html)
+* C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
+* Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
+  * http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide\
+* Python uses [unittest](https://docs.python.org/3/library/unittest.html)
+  * run the python tests with the command 'make run_tests_python'
 
 ## Todos
 
