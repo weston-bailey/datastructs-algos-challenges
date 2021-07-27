@@ -14,7 +14,7 @@ testing is done with the [makefile](https://www.gnu.org/software/make/)
 * Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
   * http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide\
 * Python uses [unittest](https://docs.python.org/3/library/unittest.html)
-  * run the python tests with the command 'make run_tests_python'
+  * run the python tests with the command `make run_tests_python`
 
 ## Todos
 
