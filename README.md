@@ -1,40 +1,28 @@
-# Algorithms, Datastructures and Code Challenges
+# ⚗️ Algorithms, Datastructures and Code Challenges
 
-This is a repo of algorithms and data structures for self study.
+This is a repo of that organizes my algorithms and data structures for self study.
 
-The algorithms/data structures are organized by langauge and then type
+It mainly contains links to other repos and my todo list.
 
-The code challenges are organized by their origin (hackerrank, leet code, code wars, etc) and then their programming langauge. The code challenges that use data structures import them from their respective folders. 
+The solutions are organized by langauges and then algorithm/data structure and linked to the corrosponding repos
+
+The code challenges are organized by their origin (hackerrank, leet code, code wars, etc) and then their programming langauge.
 
 ## Langauges and Testing
 
-testing is done with the [makefile](https://www.gnu.org/software/make/)
+testing is done with the [makefile](https://www.gnu.org/software/make/). In all cases you can run the tests with the command `make run_tests`.
 
 * C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
 * Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
-  * http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide\
 * Python uses [unittest](https://docs.python.org/3/library/unittest.html)
-  * run the python tests with the command `make run_tests_python`
 
-## Todos
+## Todos and Links
 
-### Datastructures
+#### Coding challenges
 
-* [ ] linked list
-    * [ ] single
-    * [ ] double
-    * [ ] circular
-* [ ] Trees 
-    * [ ] BST
-    * [ ] Trie
-* [ ] Stack
-* [ ] Queue
-* [ ] Graph
-    * [ ] shortest path to node 
-        * https://iq.opengenus.org/dijkstras-algorithm-finding-shortest-path-between-all-nodes/ 
-* [ ] DIY hashtable
-  
-### Sort Algorithms
+the main coding challenge repo can be found here
+
+#### Sort Algorithms
 
 * [ ] Bubble Sort
 * [ ] bucket_sort
@@ -49,7 +37,25 @@ testing is done with the [makefile](https://www.gnu.org/software/make/)
 * [ ] counting sort
 * [ ] cubesort
 
-## Links
+#### Linked List
+
+* [ ] single
+* [ ] double
+* [ ] circular
+
+#### Binary Search Tree
+
+#### Trie
+
+#### Stack
+
+#### Queue
+
+#### Graph
+
+#### DIY Hashtable
+  
+## Resources 
 
 visual algo:
 
@@ -63,4 +69,7 @@ big o cheatsheet:
 
 https://www.bigocheatsheet.com/
 
+Shortest path between graph nodes:
+
+https://iq.opengenus.org/dijkstras-algorithm-finding-shortest-path-between-all-nodes/ 
 
