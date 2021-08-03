@@ -16,13 +16,15 @@ testing is done with the [makefile](https://www.gnu.org/software/make/). In all 
 * Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
 * Python uses [unittest](https://docs.python.org/3/library/unittest.html)
 
-## Todos and Links
+## ✍️ Todos and Links
 
 #### Coding challenges
 
 the main coding challenge repo can be found here
 
 #### Sort Algorithms
+
+here are the repos for sorting in [python](), [clang](), [typescript]() and [javascript]() 
 
 * [ ] Bubble Sort
 * [ ] bucket_sort
