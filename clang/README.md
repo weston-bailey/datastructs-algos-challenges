@@ -1,4 +1,4 @@
-# Python Data Structures and Algorithms 
+# C language Data Structures and Algorithms 
 
 ## General Todos
 
@@ -38,3 +38,5 @@
 ### Queue
 
 ### Graph
+
+### DIY Hashtable
