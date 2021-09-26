@@ -15,9 +15,11 @@ testing is done with the [makefile](https://www.gnu.org/software/make/). In all 
 * Python uses [unittest](https://docs.python.org/3/library/unittest.html)
 * gonna do [something like this](http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide) for typescript haha
 
-Python, Clang, Typescript, and Javascript all have their own todo readmes.  
-
 ## ✍️ Todos and Links
+
+### Todos
+
+[Python](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/python), [Clang](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/clang), [Typescript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/typescript), and [Javascript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/javascript) all have their own todo readmes.  
 
 ### Links
 
