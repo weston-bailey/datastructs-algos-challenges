@@ -2,7 +2,7 @@
 
 ## General Todos
 
-* [ ] create function to check if arrays are sorted
+* [x] create function to check if arrays are sorted
 
 ## Coding challenges
 
