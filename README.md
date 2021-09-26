@@ -2,29 +2,24 @@
 
 This is a repo of that organizes my algorithms and data structures for self study.
 
-It mainly contains links to other repos and my todo list.
-
-The solutions are organized by langauges and then algorithm/data structure and linked to the corrosponding repos
+The algorithms/data structures are organized by language.
 
 The code challenges are organized by their origin (hackerrank, leet code, code wars, etc) and then their programming langauge.
 
-## Langauges and Testing
+## Languages and Testing
 
 testing is done with the [makefile](https://www.gnu.org/software/make/). In all cases you can run the tests with the command `make run_tests`.
+
+C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framework
 
 * C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
 * Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
 * Python uses [unittest](https://docs.python.org/3/library/unittest.html)
-
-## ✍️ Todos and Links
+* gonna do [something like this](http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide) for typescript haha
 
 #### Coding challenges
 
-the main coding challenge repo can be found here
-
-#### Sort Algorithms
-
-here are the repos for sorting in [python](), [clang](), [typescript]() and [javascript]() 
+### Sort Algorithms
 
 * [ ] Bubble Sort
 * [ ] bucket_sort
@@ -56,8 +51,8 @@ here are the repos for sorting in [python](), [clang](), [typescript]() and [jav
 #### Graph
 
 #### DIY Hashtable
-  
-## Resources 
+
+## ✍️ Todos and Links
 
 visual algo:
 
@@ -70,8 +65,3 @@ https://gist.github.com/weston-bailey/19cdf5f66e27680e10d9e1fc8329b732
 big o cheatsheet:
 
 https://www.bigocheatsheet.com/
-
-Shortest path between graph nodes:
-
-https://iq.opengenus.org/dijkstras-algorithm-finding-shortest-path-between-all-nodes/ 
-
