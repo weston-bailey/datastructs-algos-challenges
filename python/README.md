@@ -3,6 +3,9 @@
 ## General Todos
 
 * [x] create function to check if arrays are sorted
+* [ ] merge all of the random list functions from ./lib/data into one function
+* [ ] add the rest of sorts 
+* [ ] add sort speed tests
 
 ## Coding challenges
 
