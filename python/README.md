@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
 ## Sort Algorithms
 
-* [ ] Bubble Sort
+* [x] Bubble Sort
 * [ ] bucket_sort
 * [ ] heap sort
 * [ ] insertion_sort
