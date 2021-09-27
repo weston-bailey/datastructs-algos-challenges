@@ -1,9 +1,26 @@
 # Python Data Structures and Algorithms 
 
+## unittest cheatsheet
+
+See [here](https://docs.python.org/3/library/unittest.html#test-cases) for test case methods.
+
+```python
+from unittest import TestCase, main
+
+class Test_Name(TestCase):
+  def test(self):
+    self.assertTrue(True, True)
+
+if __name__ == '__main__':
+  main()
+```
+	
+	
+
 ## General Todos
 
 * [x] create function to check if arrays are sorted
-* [ ] merge all of the random list functions from ./lib/data into one function
+* [x] merge all of the random list functions from ./lib/data into one function
 * [ ] add the rest of sorts 
 * [ ] add sort speed tests
 
