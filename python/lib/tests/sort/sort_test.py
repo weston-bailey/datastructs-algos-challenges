@@ -4,6 +4,7 @@ from ...sort.bubble_sort import *
 from ...sort.is_sorted import *
 from ...sort.insertion_sort import *
 from ...sort.selection_sort import *
+from ...sort.bucket_sort import *
 
 class Test_Sorts(TestCase):
 
@@ -60,6 +61,18 @@ class Test_Sorts(TestCase):
     # test random complex list
     unsorted_list = random_list(length=500, negative=True)
     sorted_list = selection_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+
+  def test_bucket_sort(self):
+    # test simplle list
+    unsorted_list = [2, 1, 4, 3, 6, 7, 5, 7]
+    sorted_list = bucket_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+    # test random complex list
+    unsorted_list = random_list(length=500)
+    sorted_list = bucket_sort(unsorted_list, num_buckets=10)
     sorted_test = is_sorted(sorted_list)
     self.assertTrue(sorted_test)
 
