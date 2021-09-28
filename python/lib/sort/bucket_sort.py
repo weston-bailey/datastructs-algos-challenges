@@ -3,7 +3,7 @@ from .insertion_sort import insertion_sort
 
 # accepts an unsorted list and the number of buckets to use (k)
 # only works with positive vales
-def bucket_sort(unsorted_list, num_buckets=2, sort_algorithm=insertion_sort):
+def bucket_sort(unsorted_list, num_buckets=2, sort_algorithm=insertion_sort, *args, **kwargs):
   # make the buckets
   buckets = []
   for _ in range(num_buckets + 1): buckets.append([])

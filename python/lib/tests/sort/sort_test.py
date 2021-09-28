@@ -75,6 +75,11 @@ class Test_Sorts(TestCase):
     sorted_list = bucket_sort(unsorted_list, num_buckets=10)
     sorted_test = is_sorted(sorted_list)
     self.assertTrue(sorted_test)
+    #  test bucket_sort with another sort algo
+    unsorted_list = random_list(length=500)
+    sorted_list = bucket_sort(unsorted_list, num_buckets=10, sort_algorithm=selection_sort)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
 
 if __name__ == '__main__':
   main()
