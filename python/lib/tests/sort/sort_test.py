@@ -5,6 +5,9 @@ from ...sort.is_sorted import *
 from ...sort.insertion_sort import *
 from ...sort.selection_sort import *
 from ...sort.bucket_sort import *
+from ...sort.heap_sort import *
+from ...sort.merge_sort import *
+from ...sort.quick_sort import *
 
 class Test_Sorts(TestCase):
 
@@ -80,6 +83,43 @@ class Test_Sorts(TestCase):
     sorted_list = bucket_sort(unsorted_list, num_buckets=10, sort_algorithm=selection_sort)
     sorted_test = is_sorted(sorted_list)
     self.assertTrue(sorted_test)
+
+  def test_heap_sort(self):
+    # test simplle list
+    unsorted_list = [2, 1, 4, 3, 6, 7, 5, 7]
+    sorted_list = heap_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+    # test random complex list
+    unsorted_list = random_list(length=500)
+    sorted_list = heap_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+
+  def test_merge_sort(self):
+    # test simplle list
+    unsorted_list = [2, 1, 4, 3, 6, 7, 5, 7]
+    sorted_list = merge_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+    # test random complex list
+    unsorted_list = random_list(length=500)
+    sorted_list = merge_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+
+  def test_quick_sort(self):
+    # test simplle list
+    unsorted_list = [2, 1, 4, 3, 6, 7, 5, 7]
+    sorted_list = quick_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+    # test random complex list
+    unsorted_list = random_list(length=500)
+    sorted_list = quick_sort(unsorted_list)
+    sorted_test = is_sorted(sorted_list)
+    self.assertTrue(sorted_test)
+
 
 if __name__ == '__main__':
   main()
