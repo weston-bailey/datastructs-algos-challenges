@@ -20,7 +20,7 @@ class Test_Non_Mutated_List(TestCase):
     sorted_test = is_sorted(sorted_list)
     self.assertTrue(sorted_test)
 
-  def test_unorder(self):
+  def test_unordered(self):
     # should not mutate original list
     unsorted_list = random_list(length=500)
     non_mutated_list(unsorted_list, selection_sort)
