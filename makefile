@@ -1,5 +1,5 @@
 run_tests_python:
-	python3 -m unittest python/lib/tests/*/*_test.py
+	python3 -m unittest python/tests/*/*/*_test.py
 	
 run_tests_clang:
 	echo "no tests specified"

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from ...data.float_to_str import float_to_str
+from ....lib.data.float_to_str import float_to_str
 
 class Test_Float_To_Strong(TestCase):
   def test_type(self):
