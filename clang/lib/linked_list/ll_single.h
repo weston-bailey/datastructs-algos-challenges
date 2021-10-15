@@ -10,7 +10,10 @@ typedef struct LL_Single_Node ll_single_node;
 typedef int ll_single_value;
 
 ll_single ll_single_new ();
-ll_single ll_single_push ();
+ll_single ll_single_push (ll_single *list, ll_single_value value);
+
+void ll_single_print (ll_single *list);
+int ll_single_length (ll_single list);
 
 /* linked list manager struct */
 struct LL_Single {
@@ -74,9 +77,28 @@ ll_single ll_single_push (ll_single *list, ll_single_value value)
   return *list;
 }
 
+/* returns the length of the linked list */
+int ll_single_length (ll_single list) 
+{
+  return list.size;
+}
+/* prints every value in the list */
+void ll_single_print (ll_single *list)
+{
+  if (list->size == -1) {
+    printf("list is empty");
+    return;
+  } 
 
+  list->current = list->head;
+  int i = 0;
+  while (list->current) {
+    printf("[%d] = %d\n", i, list->current->value);
+    list->current = list->current->next;
+    i++;
+  }
 
-
+}
 
 
 #endif
