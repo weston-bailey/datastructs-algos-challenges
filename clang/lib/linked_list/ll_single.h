@@ -12,7 +12,7 @@ typedef int ll_single_value;
 ll_single ll_single_new ();
 ll_single ll_single_push (ll_single *list, ll_single_value value);
 ll_single ll_single_pop (ll_single *list);
-ll_single ll_single_append (ll_single *list, ll_single_value value);
+ll_single ll_single_prepend (ll_single *list, ll_single_value value);
 ll_single ll_single_unshift (ll_single *list);
 ll_single ll_single_splice (ll_single *list, int index);
 
@@ -101,14 +101,18 @@ ll_single ll_single_pop (ll_single *list)
   return *list;
 }
 
-ll_single ll_single_append (ll_single *list)
+ll_single ll_single_prepend (ll_single *list, ll_single_value value)
 {
   /* create a new node */
-
+  ll_single_node *new_node = (ll_single_node*) malloc (sizeof (ll_single_node));
+  new_node->value = value;
   /* set the head to be the new node's next */
+  new_node->next = list->head;
 
   /* set the new node to be the head, inc the size */
-
+  list->head = new_node;
+  list->size++;
+  return *list;
 }
 
 ll_single ll_single_unshift (ll_single *list)
@@ -118,6 +122,7 @@ ll_single ll_single_unshift (ll_single *list)
   /* set the head's next to be the head */
 
   /* free the head and clean up, dec the size */
+  return *list;
 }
 
 ll_single ll_single_splice (ll_single *list, int index)
@@ -127,6 +132,7 @@ ll_single ll_single_splice (ll_single *list, int index)
   /* link the prev to the current's next */
 
   /* clean up and dec the list size */
+  return *list;
 }
 
 
