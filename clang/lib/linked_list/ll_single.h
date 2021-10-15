@@ -1,5 +1,6 @@
 #ifndef LL_SINGLE
 #define LL_SINGLE
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 
@@ -8,7 +9,8 @@ typedef struct LL_Single ll_single;
 typedef struct LL_Single_Node ll_single_node;
 typedef int ll_single_value;
 
-ll_single new_ll_single ();
+ll_single ll_single_new ();
+ll_single ll_single_push ();
 
 /* linked list manager struct */
 struct LL_Single {
@@ -28,15 +30,48 @@ struct LL_Single_Node {
   ll_single_value value;
 };
 
-ll_single new_ll_single () 
+ll_single ll_single_new () 
 {
   /* create a pointer to the linked list */
   ll_single *new_list = (ll_single*) malloc (sizeof (ll_single));
+
   /* the linked list starts off empty */
   new_list->head = NULL;
   new_list->current = NULL;
-  new_list->size = 0;
+  new_list->size = -1;
   return *new_list;
+}
+
+ll_single ll_single_push (ll_single *list, ll_single_value value) 
+{
+  /* create the new node and value to sotre in it */
+  ll_single_node *new_node = (ll_single_node*) malloc (sizeof (ll_single_node));
+  ll_single_value *new_value = (ll_single_value*) malloc (sizeof (ll_single_value));
+
+  /* set up the new node */
+  new_node->value = *new_value = value;
+  new_node->next = NULL;
+
+  /* if the list has head, we need to zip to the end and add the new node */
+  if (list->head) {
+    /* set the current to be the haed to start */
+    list->current = list->head;
+    /* loop until there is a NULL value in the current node's head */
+    while (list->current->next) {
+      /* the current to to be the next to keep looping */
+      list->current = list->current->next;
+    } 
+    /* once its at the end, set to next to be the new node */
+    list->current->next = new_node;
+  } else {
+    /* the the case this is the first thing added to the list */
+    list->head = new_node;
+  }
+
+  /* increment the count in either case */
+  list->size++;
+  
+  return *list;
 }
 
 
