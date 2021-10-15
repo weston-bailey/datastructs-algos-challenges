@@ -1,46 +1,46 @@
-#ifndef LL_SINGLE
-#define LL_SINGLE
+#ifndef _SLL_
+#define _SLL_
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 
 
-typedef struct LL_Single ll_single;
-typedef struct LL_Single_Node ll_single_node;
-typedef int ll_single_value;
+typedef struct SLL sll;
+typedef struct SLL_Node sll_node;
+typedef int sll_value;
 
-ll_single ll_single_new ();
-ll_single ll_single_push (ll_single *list, ll_single_value value);
-ll_single ll_single_pop (ll_single *list);
-ll_single ll_single_prepend (ll_single *list, ll_single_value value);
-ll_single ll_single_unshift (ll_single *list);
-ll_single ll_single_splice (ll_single *list, int start_index, int end_index);
+sll sll_new ();
+sll sll_push (sll *list, sll_value value);
+sll sll_pop (sll *list);
+sll sll_prepend (sll *list, sll_value value);
+sll sll_unshift (sll *list);
+sll sll_splice (sll *list, int start_index, int end_index);
 
-void ll_single_print (ll_single *list);
-int ll_single_length (ll_single list);
+void sll_print (sll *list);
+int sll_length (sll list);
 
 /* linked list manager struct */
-struct LL_Single {
+struct SLL {
   /* the first node in the head of the liked list */
-  ll_single_node *head;
+  sll_node *head;
   /* the node that is currently being checked */
-  ll_single_node *current;
+  sll_node *current;
   /* the number of nodes in the linked list */
   int size;
 };
 
 /* a single link in the list */
-struct LL_Single_Node {
+struct SLL_Node {
   /* the node that is next in the list */
-  ll_single_node *next;
+  sll_node *next;
   /* the value contained in the node */
-  ll_single_value value;
+  sll_value value;
 };
 
-ll_single ll_single_new () 
+sll sll_new () 
 {
   /* create a pointer to the linked list */
-  ll_single *new_list = (ll_single*) malloc (sizeof (ll_single));
+  sll *new_list = (sll*) malloc (sizeof (sll));
 
   /* the linked list starts off empty */
   new_list->head = NULL;
@@ -49,11 +49,11 @@ ll_single ll_single_new ()
   return *new_list;
 }
 
-ll_single ll_single_push (ll_single *list, ll_single_value value) 
+sll sll_push (sll *list, sll_value value) 
 {
   /* create the new node and value to sotre in it */
-  ll_single_node *new_node = (ll_single_node*) malloc (sizeof (ll_single_node));
-  ll_single_value *new_value = (ll_single_value*) malloc (sizeof (ll_single_value));
+  sll_node *new_node = (sll_node*) malloc (sizeof (sll_node));
+  sll_value *new_value = (sll_value*) malloc (sizeof (sll_value));
 
   /* set up the new node */
   new_node->value = *new_value = value;
@@ -81,12 +81,12 @@ ll_single ll_single_push (ll_single *list, ll_single_value value)
   return *list;
 }
 
-ll_single ll_single_pop (ll_single *list)
+sll sll_pop (sll *list)
 {
   /* return early if the list is empty */
   if (!list->head) return *list;
   /* zip to the end and keep track if the previous node*/
-  ll_single_node *prev;
+  sll_node *prev;
   list->current = list->head;
   while (list->current->next) {
     prev = list->current;
@@ -102,10 +102,10 @@ ll_single ll_single_pop (ll_single *list)
   return *list;
 }
 
-ll_single ll_single_prepend (ll_single *list, ll_single_value value)
+sll sll_prepend (sll *list, sll_value value)
 {
   /* create a new node */
-  ll_single_node *new_node = (ll_single_node*) malloc (sizeof (ll_single_node));
+  sll_node *new_node = (sll_node*) malloc (sizeof (sll_node));
   new_node->value = value;
   /* set the head to be the new node's next */
   new_node->next = list->head;
@@ -116,10 +116,10 @@ ll_single ll_single_prepend (ll_single *list, ll_single_value value)
   return *list;
 }
 
-ll_single ll_single_unshift (ll_single *list)
+sll sll_unshift (sll *list)
 {
   /* store a reference to the head */
-  ll_single_node *head;
+  sll_node *head;
   head = list->head;
 
   /* set the head's next to be the head */
@@ -133,7 +133,7 @@ ll_single ll_single_unshift (ll_single *list)
   return *list;
 }
 
-ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
+sll sll_splice (sll *list, int start_index, int end_index)
 {
   /* return early if start_index or end_index is out of bounds */
   if (start_index > list->size) return *list;
@@ -143,7 +143,7 @@ ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
 
   /* loop to start_index, keeping track prev */
   int i = 0;
-  ll_single_node* prev;
+  sll_node* prev;
   list->current = list->head;
   while (i < start_index) {
     prev = list->current;
@@ -151,7 +151,7 @@ ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
     i++;
   }
   /* make an array to hold all the nodes to remove -- add from start_index to end_index */
-  ll_single_node* nodes[end_index];
+  sll_node* nodes[end_index];
   i = 0;
   while (i < end_index) {
     nodes[i] = list->current;
@@ -162,7 +162,7 @@ ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
   /* link the prev to the current's next */
   prev->next = list->current->next;
   /* clean up and dec the list size */
-  size_t nodes_size = sizeof (nodes) / sizeof (ll_single_node*);
+  size_t nodes_size = sizeof (nodes) / sizeof (sll_node*);
   for (i = 0; i < nodes_size; i++) {
     free (nodes[i]);
   }
@@ -174,13 +174,13 @@ ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
 
 
 /* returns the length of the linked list */
-int ll_single_length (ll_single list) 
+int sll_length (sll list) 
 {
   return list.size;
 }
 
 /* prints every value in the list */
-void ll_single_print (ll_single *list)
+void sll_print (sll *list)
 {
   if (list->size == -1) {
     printf("list is empty\n");
