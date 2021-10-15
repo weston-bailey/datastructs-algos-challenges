@@ -17,6 +17,8 @@ int main ()
   }
   */
   ll_single_prepend (&my_list, 420);
+  ll_single_prepend (&my_list, 420);
+  ll_single_unshift (&my_list);
   ll_single_pop (&my_list);
   ll_single_print (&my_list);
   printf ("sucess!\n");

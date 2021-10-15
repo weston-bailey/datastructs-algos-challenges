@@ -118,10 +118,16 @@ ll_single ll_single_prepend (ll_single *list, ll_single_value value)
 ll_single ll_single_unshift (ll_single *list)
 {
   /* store a reference to the head */
+  ll_single_node *head;
+  head = list->head;
 
   /* set the head's next to be the head */
+  list->head = head->next;
 
   /* free the head and clean up, dec the size */
+  free (head);
+  list->size--;
+
   return *list;
 }
 
