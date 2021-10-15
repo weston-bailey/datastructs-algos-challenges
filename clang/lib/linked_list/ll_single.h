@@ -12,6 +12,9 @@ typedef int ll_single_value;
 ll_single ll_single_new ();
 ll_single ll_single_push (ll_single *list, ll_single_value value);
 ll_single ll_single_pop (ll_single *list);
+ll_single ll_single_append (ll_single *list, ll_single_value value);
+ll_single ll_single_unshift (ll_single *list);
+ll_single ll_single_splice (ll_single *list, int index);
 
 void ll_single_print (ll_single *list);
 int ll_single_length (ll_single list);
@@ -89,13 +92,43 @@ ll_single ll_single_pop (ll_single *list)
     prev = list->current;
     list->current = list->current->next;
   }
-  /* the previous should forget aobut the deleted node */
+  /* clean up and dcrement size */
   prev->next = NULL;
   free (list->current);
   list->current = NULL;
+  list->size--;
 
   return *list;
 }
+
+ll_single ll_single_append (ll_single *list)
+{
+  /* create a new node */
+
+  /* set the head to be the new node's next */
+
+  /* set the new node to be the head, inc the size */
+
+}
+
+ll_single ll_single_unshift (ll_single *list)
+{
+  /* store a reference to the head */
+
+  /* set the head's next to be the head */
+
+  /* free the head and clean up, dec the size */
+}
+
+ll_single ll_single_splice (ll_single *list, int index)
+{
+  /* loop to index, keeping track prev */
+
+  /* link the prev to the current's next */
+
+  /* clean up and dec the list size */
+}
+
 
 /* returns the length of the linked list */
 int ll_single_length (ll_single list) 
