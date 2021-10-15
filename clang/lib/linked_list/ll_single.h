@@ -81,7 +81,6 @@ ll_single ll_single_push (ll_single *list, ll_single_value value)
   return *list;
 }
 
-/* there is a bug if you pop off a list until it is empty */
 ll_single ll_single_pop (ll_single *list)
 {
   /* return early if the list is empty */
@@ -129,6 +128,7 @@ ll_single ll_single_unshift (ll_single *list)
   /* free the head and clean up, dec the size */
   free (head);
   list->size--;
+  if (list->size == -1) list->head = NULL;
 
   return *list;
 }
