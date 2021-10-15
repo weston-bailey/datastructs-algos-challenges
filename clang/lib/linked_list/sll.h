@@ -143,7 +143,7 @@ sll sll_splice (sll *list, int start_index, int end_index)
 
   /* loop to start_index, keeping track prev */
   int i = 0;
-  sll_node* prev;
+  sll_node *prev;
   list->current = list->head;
   while (i < start_index) {
     prev = list->current;
@@ -151,7 +151,7 @@ sll sll_splice (sll *list, int start_index, int end_index)
     i++;
   }
   /* make an array to hold all the nodes to remove -- add from start_index to end_index */
-  sll_node* nodes[end_index];
+  sll_node *nodes[end_index];
   i = 0;
   while (i < end_index) {
     nodes[i] = list->current;
