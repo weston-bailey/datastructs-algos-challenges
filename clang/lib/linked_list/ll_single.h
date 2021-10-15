@@ -81,6 +81,7 @@ ll_single ll_single_push (ll_single *list, ll_single_value value)
   return *list;
 }
 
+/* there is a bug if you pop off a list until it is empty */
 ll_single ll_single_pop (ll_single *list)
 {
   /* return early if the list is empty */
@@ -97,6 +98,7 @@ ll_single ll_single_pop (ll_single *list)
   free (list->current);
   list->current = NULL;
   list->size--;
+  if (list->size == -1) list->head = NULL;
 
   return *list;
 }
@@ -133,11 +135,23 @@ ll_single ll_single_unshift (ll_single *list)
 
 ll_single ll_single_splice (ll_single *list, int index)
 {
+  if (index > list->size) return *list;
   /* loop to index, keeping track prev */
-
+  int i;
+  ll_single_node *prev;
+  list->current = list->head;
+  while (i < index) {
+    prev = list->current;
+    list->current = list->current->next;
+    i++;
+  }
   /* link the prev to the current's next */
-
+  prev->next = list->current->next;
   /* clean up and dec the list size */
+  free (list->current);
+  list->current = NULL;
+  list->size--;
+
   return *list;
 }
 
@@ -152,7 +166,7 @@ int ll_single_length (ll_single list)
 void ll_single_print (ll_single *list)
 {
   if (list->size == -1) {
-    printf("list is empty");
+    printf("list is empty\n");
     return;
   } 
 
