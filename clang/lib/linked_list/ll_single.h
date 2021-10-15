@@ -11,6 +11,7 @@ typedef int ll_single_value;
 
 ll_single ll_single_new ();
 ll_single ll_single_push (ll_single *list, ll_single_value value);
+ll_single ll_single_pop (ll_single *list);
 
 void ll_single_print (ll_single *list);
 int ll_single_length (ll_single list);
@@ -77,11 +78,31 @@ ll_single ll_single_push (ll_single *list, ll_single_value value)
   return *list;
 }
 
+ll_single ll_single_pop (ll_single *list)
+{
+  /* return early if the list is empty */
+  if (!list->head) return *list;
+  /* zip to the end and keep track if the previous node*/
+  ll_single_node *prev;
+  list->current = list->head;
+  while (list->current->next) {
+    prev = list->current;
+    list->current = list->current->next;
+  }
+  /* the previous should forget aobut the deleted node */
+  prev->next = NULL;
+  free (list->current);
+  list->current = NULL;
+
+  return *list;
+}
+
 /* returns the length of the linked list */
 int ll_single_length (ll_single list) 
 {
   return list.size;
 }
+
 /* prints every value in the list */
 void ll_single_print (ll_single *list)
 {
@@ -99,6 +120,7 @@ void ll_single_print (ll_single *list)
   }
 
 }
+
 
 
 #endif
