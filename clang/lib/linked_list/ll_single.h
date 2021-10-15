@@ -137,7 +137,7 @@ ll_single ll_single_splice (ll_single *list, int index)
 {
   if (index > list->size) return *list;
   /* loop to index, keeping track prev */
-  int i;
+  int i = 0;
   ll_single_node *prev;
   list->current = list->head;
   while (i < index) {

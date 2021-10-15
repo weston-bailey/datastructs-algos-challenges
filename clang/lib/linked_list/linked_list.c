@@ -36,6 +36,8 @@ int main ()
   ll_single_push (&my_list, 6);
   ll_single_push (&my_list, 7);
 
+  ll_single_splice (&my_list, 3);
+
   ll_single_print (&my_list);
   printf ("sucess!\n");
   return 0;
