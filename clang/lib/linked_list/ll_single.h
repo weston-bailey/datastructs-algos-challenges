@@ -14,7 +14,7 @@ ll_single ll_single_push (ll_single *list, ll_single_value value);
 ll_single ll_single_pop (ll_single *list);
 ll_single ll_single_prepend (ll_single *list, ll_single_value value);
 ll_single ll_single_unshift (ll_single *list);
-ll_single ll_single_splice (ll_single *list, int index);
+ll_single ll_single_splice (ll_single *list, int start_index, int end_index);
 
 void ll_single_print (ll_single *list);
 int ll_single_length (ll_single list);
@@ -133,24 +133,41 @@ ll_single ll_single_unshift (ll_single *list)
   return *list;
 }
 
-ll_single ll_single_splice (ll_single *list, int index)
+ll_single ll_single_splice (ll_single *list, int start_index, int end_index)
 {
-  if (index > list->size) return *list;
-  /* loop to index, keeping track prev */
+  /* return early if start_index or end_index is out of bounds */
+  if (start_index > list->size) return *list;
+  /* remove until the end of the list if th end_index is out of bounds */
+  if(start_index + end_index > list->size) end_index =list->size - start_index;
+
+
+  /* loop to start_index, keeping track prev */
   int i = 0;
-  ll_single_node *prev;
+  ll_single_node* prev;
   list->current = list->head;
-  while (i < index) {
+  while (i < start_index) {
     prev = list->current;
     list->current = list->current->next;
     i++;
   }
+  /* make an array to hold all the nodes to remove -- add from start_index to end_index */
+  ll_single_node* nodes[end_index];
+  i = 0;
+  while (i < end_index) {
+    nodes[i] = list->current;
+    list->current = list->current->next;
+    i++;
+  }
+
   /* link the prev to the current's next */
   prev->next = list->current->next;
   /* clean up and dec the list size */
-  free (list->current);
+  size_t nodes_size = sizeof (nodes) / sizeof (ll_single_node*);
+  for (i = 0; i < nodes_size; i++) {
+    free (nodes[i]);
+  }
   list->current = NULL;
-  list->size--;
+  list->size -= (int)nodes_size;
 
   return *list;
 }
@@ -179,7 +196,5 @@ void ll_single_print (ll_single *list)
   }
 
 }
-
-
 
 #endif
