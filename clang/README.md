@@ -2,7 +2,11 @@
 
 ## General Todos
 
-* [ ] create function to check if arrays are sorted
+* [x] create function to check if arrays are sorted
+* [ ] implement cGreen
+  * [ ] add install instructions
+  * [ ] add little cheatsheet here
+  * [ ] add to makefile  
 
 ## Coding challenges
 
@@ -25,7 +29,9 @@
 
 ### Linked List
 
-* [ ] single
+* [x] single
+  * [ ] [python list methods](https://www.w3schools.com/python/python_ref_list.asp)
+  * [ ] [js style methods](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 * [ ] double
 * [ ] circular
 
