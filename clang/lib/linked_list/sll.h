@@ -12,7 +12,7 @@ typedef int sll_value;
 sll sll_new ();
 sll sll_push (sll *list, sll_value value);
 sll sll_pop (sll *list);
-sll sll_prepend (sll *list, sll_value value);
+sll sll_shift (sll *list, sll_value value);
 sll sll_unshift (sll *list);
 sll sll_splice (sll *list, int start_index, int end_index);
 
@@ -102,7 +102,7 @@ sll sll_pop (sll *list)
   return *list;
 }
 
-sll sll_prepend (sll *list, sll_value value)
+sll sll_shift (sll *list, sll_value value)
 {
   /* create a new node */
   sll_node *new_node = (sll_node*) malloc (sizeof (sll_node));

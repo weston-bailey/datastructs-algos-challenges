@@ -16,8 +16,8 @@ int main ()
     sll_push (&my_list, i * i);
   }
   */
-  sll_prepend (&my_list, 420);
-  sll_prepend (&my_list, 420);
+  sll_shift (&my_list, 420);
+  sll_shift (&my_list, 420);
   sll_unshift (&my_list);
   sll_pop (&my_list);
   sll_print (&my_list);
