@@ -10,6 +10,7 @@ typedef int dll_value;
 dll dll_new ();
 dll dll_reset (dll *list);
 dll_node dll_node_new ();
+int is_empty (dll *list);
 dll dll_push (dll *list, dll_value value);
 dll dll_pop (dll *list);
 dll dll_shift (dll *list, dll_value value);
@@ -67,6 +68,13 @@ dll_node dll_node_new ()
 
   return *new_node;
 } 
+
+/* checks if list is empty or not */
+int dll_is_empty (dll *list) 
+{
+  
+}
+
 /* add value to the end of the list */
 dll dll_push (dll *list, dll_value value) 
 {
@@ -78,8 +86,9 @@ dll dll_push (dll *list, dll_value value)
   /* if this is the fitst node in the list */
   if (!list->tail) {
     list->head = new_node;
+    new_node->prev = list->head;
+    new_node->next = NULL;
     list->tail = new_node;
-
     return *list;
   }
 
