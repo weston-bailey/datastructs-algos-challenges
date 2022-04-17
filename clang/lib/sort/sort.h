@@ -1,6 +1,7 @@
-#include <stdio.h>
-int is_sorted(int *array, size_t length);
-void print_nums(int *numbers, size_t len);
+# include <stdio.h>
+
+int is_sorted (int *array, size_t length);
+void print_nums (int *numbers, size_t len);
 
 int is_sorted(int *array, size_t length)
 {
