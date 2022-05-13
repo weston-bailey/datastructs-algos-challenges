@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from ....lib.linked_list.Single import *
+from .Single import *
 
 
 class Test_Single_Linked_List(TestCase):

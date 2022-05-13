@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from ....lib.tree.Binary_Search_Tree import *
+from .Binary_Search_Tree import *
 
 
 class Test_Single_Linked_List(TestCase):

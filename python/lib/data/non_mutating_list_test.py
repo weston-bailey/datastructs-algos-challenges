@@ -1,9 +1,9 @@
 from unittest import TestCase, main
-from ....lib.data.non_mutated_list import non_mutated_list
-from ....lib.data.random_list import random_list
-from ....lib.sort.selection_sort import selection_sort
-from ....lib.sort.bucket_sort import bucket_sort
-from ....lib.sort.is_sorted import is_sorted
+from .non_mutated_list import non_mutated_list
+from .random_list import random_list
+from ..sort.selection_sort import selection_sort
+from ..sort.bucket_sort import bucket_sort
+from ..sort.is_sorted import is_sorted
 
 
 class Test_Non_Mutated_List(TestCase):

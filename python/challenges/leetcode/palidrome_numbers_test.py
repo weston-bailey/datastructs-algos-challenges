@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from ....challenges.leetcode.palidrome_numbers import *
+from .palidrome_numbers import *
 
 
 class Test_Name(TestCase):

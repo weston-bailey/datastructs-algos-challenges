@@ -4,6 +4,8 @@
 
 See [here](https://docs.python.org/3/library/unittest.html#test-cases) for test case methods.
 
+to run a test use `python3 -m unittest <file_name>`
+
 ```python
 from unittest import TestCase, main
 

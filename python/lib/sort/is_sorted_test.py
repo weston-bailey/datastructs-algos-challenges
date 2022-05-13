@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from ....lib.sort.is_sorted import is_sorted
+from .is_sorted import is_sorted
 
 
 class TestIsSorted(TestCase):
