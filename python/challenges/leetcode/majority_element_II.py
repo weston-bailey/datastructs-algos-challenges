@@ -1,17 +1,17 @@
 def majority_element(nums):
-  table = {}
-  target = len(nums) / 3
-  found = []
-  for num in nums:
-    if num in table:
-      table[num] += 1
-    else:
-      table[num] = 1
+    table = {}
+    target = len(nums) / 3
+    found = []
+    for num in nums:
+        if num in table:
+            table[num] += 1
+        else:
+            table[num] = 1
 
-    if table[num] > target:
-      if num not in found:
-        found.append(num)
-  return found
+        if table[num] > target:
+            if num not in found:
+                found.append(num)
+    return found
 
 
 nums = [3, 2, 3]

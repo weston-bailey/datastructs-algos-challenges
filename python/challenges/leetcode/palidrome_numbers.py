@@ -38,5 +38,6 @@ Constraints:
 Follow up: Could you solve it without converting the integer to a string?
 '''
 
+
 def is_palindrome(self, x: int) -> bool:
-  pass
+    pass

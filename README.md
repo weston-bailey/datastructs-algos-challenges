@@ -10,16 +10,16 @@ The code challenges are organized by their origin (hackerrank, leet code, code w
 
 Testing is done with the [makefile](https://www.gnu.org/software/make/). In all cases you can run the tests with the command `make run_tests_< language >`.
 
-* C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
-* Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai) 
-* Python uses [unittest](https://docs.python.org/3/library/unittest.html)
-* gonna do [something like this](http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide) for typescript haha
+- C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
+- Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai)
+- Python uses [unittest](https://docs.python.org/3/library/unittest.html)
+- gonna do [something like this](http://www.jimlynchcodes.com/blog/a-tdd-with-typescript-setup-guide) for typescript haha
 
 ## ✍️ Todos and Links
 
 ### Todos
 
-[Python](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/python), [Clang](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/clang), [Typescript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/typescript), and [Javascript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/javascript) all have their own todo readmes.  
+[Python](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/python), [Clang](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/clang), [Typescript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/typescript), and [Javascript](https://github.com/weston-bailey/datastructs-algos-challenges/tree/main/javascript) all have their own todo readmes.
 
 ### Links
 
