@@ -1,13 +1,13 @@
 from unittest import TestCase, main
-from ..data.random_list import random_list
-from .bubble_sort import *
-from .is_sorted import *
-from .insertion_sort import *
-from .selection_sort import *
-from .bucket_sort import *
-from .heap_sort import *
-from .merge_sort import *
-from .quick_sort import *
+from data.random_list import random_list
+from bubble_sort import *
+from is_sorted import *
+from insertion_sort import *
+from selection_sort import *
+from bucket_sort import *
+from heap_sort import *
+from merge_sort import *
+from quick_sort import *
 
 
 class Test_Sorts(TestCase):
