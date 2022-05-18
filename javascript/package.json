@@ -10,7 +10,8 @@
   "scripts": {
     "test": "mocha",
     "test-all": "mocha */*/*.test.js",
-    "watch": "npx nodemon --exec npm test"
+    "watch": "npx nodemon --exec npm test",
+    "watch-all": "npx nodemon --exec npm run test-all"
   },
   "author": "",
   "license": "ISC",
