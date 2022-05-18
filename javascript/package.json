@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "mocha",
+    "test-all": "mocha */*/*.test.js",
     "watch": "npx nodemon --exec npm test"
   },
   "author": "",
