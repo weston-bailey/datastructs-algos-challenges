@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from random_list import random_list
+from lib.data.random_list import random_list
 
 
 class Test_Random_Chars(TestCase):
