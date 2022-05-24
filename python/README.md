@@ -57,4 +57,6 @@ if __name__ == '__main__':
 
 ### Queue
 
+- [ ] priority queue
+
 ### Graph
