@@ -57,6 +57,6 @@ if __name__ == '__main__':
 
 ### Queue
 
-- [ ] priority queue
+- [ ] priority queue https://adrianmejia.com/priority-queue-data-structure-and-heaps-time-complexity-javascript-implementation/
 
 ### Graph
