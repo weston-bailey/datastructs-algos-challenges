@@ -11,10 +11,10 @@ class TestPriorityQueue(TestCase):
         '''
 
         q = PriorityQueue()
-        self.assertFalse(q.is_empty())
+        self.assertTrue(q.is_empty())
         q.insert(10)
 
-        self.assertTrue(q.is_empty())
+        self.assertFalse(q.is_empty())
 
     def test_len(self):
         '''
@@ -61,6 +61,7 @@ class TestPriorityQueue(TestCase):
         '''
             PriorityQueue.poll() should remove the the head of the queue and retrieve it
         '''
+        q = PriorityQueue()
         q.insert(10)
         q.insert(20)
         q.insert(30)
@@ -68,7 +69,7 @@ class TestPriorityQueue(TestCase):
         self.assertEqual(20, q.poll())
         self.assertEqual(30, q.poll())
 
-    def test_poll(self):
+    def test_add(self):
         '''
             PriorityQueue.add() should add data at specific priorirties
         '''
