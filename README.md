@@ -8,7 +8,7 @@ The code challenges are organized by their origin (hackerrank, leet code, code w
 
 ## Languages and Testing
 
-Testing is done with the [makefile](https://www.gnu.org/software/make/). In all cases you can run the tests with the command `make run_tests_< language >`.
+Testing is done with the [makefile](https://www.gnu.org/software/make/). In all cases you can run the tests with the command `make`.
 
 - C language uses the [cGreen](https://github.com/cgreen-devs/cgreen) testing framwork
 - Typescript and javascript use [mocha](https://www.npmjs.com/package/mocha) and [chai](https://www.npmjs.com/package/chai)
