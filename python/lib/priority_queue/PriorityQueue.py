@@ -1,6 +1,7 @@
-
-
 class PriorityQueue:
+    '''
+        FIFO priority based queue
+    '''
     def __init__(self):
         self.queue = []
 
