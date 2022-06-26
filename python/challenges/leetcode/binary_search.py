@@ -29,12 +29,35 @@ Constraints:
 """
 
 def search(nums, target):
-    # loop to end of list
-    for i, num in enumerate(nums):
-        # if the num is found, return the index
-        if num == target:
-            return i
+    # keep track of current index, starting at middle
+    index = len(nums) // 2
+    # loop list
+    while True:
+        print(index)
+        # if middle is target, return index
+        if nums[index] == target:
+            return index
+        # if middle is greater than target, split lower, finding middle of lower hald
+        elif nums[index] > target:
+            index = index // 2
+        # if middle is less than target, split upper, finding middle of upper half
+        elif nums[index] < target:
+            index = (len(nums) - index) // 2
+        else:
+            return -1
 
-    # return -1 if not found
+
+    # if current is greater than len of nums or lower than 0, return -1
     return -1
+
+# naive solve
+# def search(nums, target):
+#     # loop to end of list
+#     for i, num in enumerate(nums):
+#         # if the num is found, return the index
+#         if num == target:
+#             return i
+
+#     # return -1 if not found
+#     return -1
 
