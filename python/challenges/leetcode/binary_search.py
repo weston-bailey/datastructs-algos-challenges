@@ -29,5 +29,12 @@ Constraints:
 """
 
 def search(nums, target):
-    pass
+    # loop to end of list
+    for i, num in enumerate(nums):
+        # if the num is found, return the index
+        if num == target:
+            return i
+
+    # return -1 if not found
+    return -1
 
