@@ -27,28 +27,51 @@ Constraints:
     nums is sorted in ascending order.
 
 """
+from time import sleep
 
 def search(nums, target):
-    # keep track of current index, starting at middle
-    index = len(nums) // 2
-    # loop list
+    low = 0
+    high = len(nums)
+    mid = high // 2
+    if nums[low] == target:
+        return low
+    if nums[high - 1] == target:
+        return high - 1
     while True:
-        print(index)
-        # if middle is target, return index
-        if nums[index] == target:
-            return index
-        # if middle is greater than target, split lower, finding middle of lower hald
-        elif nums[index] > target:
-            index = index // 2
-        # if middle is less than target, split upper, finding middle of upper half
-        elif nums[index] < target:
-            index = (len(nums) - index) // 2
+        # print('==================')
+        # print(f'target: {target}')
+        # print(f'nums: {nums}')
+        # print(f'low: {low}, mid: {mid}, high: {high}')
+        # print(f'current index: {nums[mid]}')
+        # if mid is target
+        if nums[mid] == target:
+            return mid
+        # if we are moving down
+        elif nums[mid] > target:
+            # move high down to current mid, recalc mid
+            high = mid
+            mid = high // 2
+        # if we are moving up
+        elif nums[mid] < target:
+            # move low up to mid, recalc mid
+            low = mid
+            # need to know the difference between high and new low
+            diff = high - low
+            # find the mid point of the diff, add to low to get new mid
+            mid = low + (diff // 2)
         else:
+            # print(f'no case matched, low: {low}, mid: {mid}, high: {high}')
+
+        # sleep(1)
+        # if we are out of bounds
+        if mid == low or mid == high:
+            # print('mid out of bounds')
+            # print(f'low: {low}, mid: {mid}, high: {high}')
             return -1
-
-
-    # if current is greater than len of nums or lower than 0, return -1
-    return -1
+        if low >= high or high <= low:
+            # print('low ord high out of bounds')
+            # print(f'low: {low}, mid: {mid}, high: {high}')
+            return -1
 
 # naive solve
 # def search(nums, target):
