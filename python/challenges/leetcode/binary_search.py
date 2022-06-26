@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/binary-search/
 Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 
 You must write an algorithm with O(log n) runtime complexity.
@@ -59,8 +60,6 @@ def search(nums, target):
             diff = high - low
             # find the mid point of the diff, add to low to get new mid
             mid = low + (diff // 2)
-        else:
-            # print(f'no case matched, low: {low}, mid: {mid}, high: {high}')
 
         # sleep(1)
         # if we are out of bounds
