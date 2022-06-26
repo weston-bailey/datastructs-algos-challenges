@@ -23,6 +23,7 @@ if __name__ == '__main__':
 - [x] merge all of the random list functions from ./lib/data into one function
 - [ ] add the rest of sorts
 - [ ] add sort speed tests
+- [ ] https://jovian.ai/learn/data-structures-and-algorithms-in-python
 
 ## Coding challenges
 
