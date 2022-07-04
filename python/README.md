@@ -10,11 +10,11 @@ to run a test use `python3 -m unittest <file_name>`
 from unittest import TestCase, main
 
 class Test_Name(TestCase):
-  def test(self):
-    self.assertTrue(True, True)
+    def test_description(self):
+        self.assertTrue(True, True)
 
 if __name__ == '__main__':
-  main()
+    main()
 ```
 
 ## General Todos
