@@ -16,11 +16,11 @@ class LeetList:
     def __repr__(self):
         return f'{self.head}'
 
-    def __iter__(self):
-        current_node = self.head
-        if current_node:
-            yield current_node
-        current_node = current_node.next
+    # def __iter__(self):
+    #     current_node = self.head
+    #     if current_node:
+    #         yield current_node
+    #     current_node = current_node.next
 
     def add(self, val):
         '''
