@@ -1,12 +1,12 @@
 import hashlib
 
 class Node:
-    def __init__(self, value,  left=None, right=None):
+    def __init__(self, value, left=None, right=None):
         self.left = left
         self.right = right
         self.value = value
 
-    def __repr__(self):
+    def __str__(self):
         return str(self.value)
 
     @staticmethod
@@ -31,7 +31,6 @@ class MerkleTree:
            # leaves.append(leaves[len(leaves)- 1])
            leaves.append(leaves[-1:][0])
         self.root = self.__build_tree_rec(leaves)
-        print(self.root)
         # for leaf in leaves:
         #     print(leaf.value)
 
@@ -43,7 +42,6 @@ class MerkleTree:
 
         # if there is only one node, duplicate it for hash
         if len(nodes) == 1:
-            print(nodes)
             return Node(Node.double_hash(nodes[0].value + nodes[0].value),
                         nodes[0], nodes[0])
         # split the nodes in half, recursively create tree
