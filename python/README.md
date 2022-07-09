@@ -67,4 +67,5 @@ if __name__ == '__main__':
 ### Blockchain
 
 https://www.section.io/engineering-education/how-to-create-a-blockchain-in-python/
-- [ ] merkle tree https://trebaud.github.io/posts/merkle-tree/
+- [x] merkle tree https://trebaud.github.io/posts/merkle-tree/
+- [x] blockchain https://medium.com/coinmonks/python-tutorial-build-a-blockchain-713c706f6531
