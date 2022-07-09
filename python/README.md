@@ -49,6 +49,8 @@ if __name__ == '__main__':
 - [ ] single
 - [ ] double
 - [ ] circular
+- [ ] stack
+- [ ] queue
 
 ### Binary Search Tree
 
@@ -65,3 +67,4 @@ if __name__ == '__main__':
 ### Blockchain
 
 https://www.section.io/engineering-education/how-to-create-a-blockchain-in-python/
+- [ ] merkle tree https://trebaud.github.io/posts/merkle-tree/
