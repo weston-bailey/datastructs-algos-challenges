@@ -1,7 +1,7 @@
 import hashlib
 
 class Node:
-    def __init__(self, left, right, value):
+    def __init__(self, value,  left=None, right=None):
         self.left = left
         self.right = right
         self.value = value
@@ -18,7 +18,12 @@ class MerkleTree:
     pass
 
 def main():
-    pass
+    root = Node('root', Node('left'), Node('right'))
+    print(root.value, root.left.value, root.right.value)
+    root.left.value = Node.hash(root.left.value)
+    root.right.value = Node.hash(root.right.value)
+    root.value = Node.hash(root.left.value + root.right.value)
+    print(root.value, root.left.value, root.right.value)
 
 if __name__ == '__main__':
     main()
