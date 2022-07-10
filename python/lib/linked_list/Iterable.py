@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 @dataclass
 class Node:
     '''
@@ -12,16 +11,17 @@ class Node:
     def __repr__(self):
         return f'{(self.value)}'
 
-
 test_node = Node(5)
 test_node.next = Node(10)
-
 
 class List:
     def __init__(self):
         self.head = None
 
     def __iter__(self):
+        '''
+            example of making a ll iterable
+        '''
         current_node = self.head
 
         while current_node:

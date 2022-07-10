@@ -23,6 +23,21 @@ class Node:
         else:
             return False
 
+# loop a hash list and verify that all nodes are valid
+# if so, return True
+# if not, return False
+def valid_list(head):
+    # list only has a head and so must be valid
+    if not head.next:
+        return True
+    # the current node
+    current = head
+    while current.next:
+        if not Node.validate(current, current.next):
+            return False
+        current = current.next
+    return True
+
 def main():
     # The encode() method encodes the string, using the specified encoding. If no encoding is specified, UTF-8 will be used.
     # encode = 'A'.encode()
@@ -40,13 +55,16 @@ def main():
     one.next = two
     three = Node(3, two.hash)
     two.next = three
-    print(head, one, two, three)
-    print(Node.validate(one, two)) # True
-    print(Node.validate(one, three)) # False
-    print(Node.validate(two, three)) # True
-    two.value = 500
-    print(Node.validate(one, two)) # False
-
+    # print(head, one, two, three)
+    # print(Node.validate(one, two)) # True
+    # print(Node.validate(one, three)) # False
+    # print(Node.validate(two, three)) # True
+    # two.value = 500
+    # print(Node.validate(one, two)) # False
+    print(valid_list(Node(10))) # True
+    print(valid_list(head)) # True
+    three.value = 5000 # mess with the data to invalidate the list
+    print(valid_list(head)) # False
 
 
 if __name__ == '__main__':
