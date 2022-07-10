@@ -1,7 +1,7 @@
-from unittest import unittest
-from Queue import Queue
+from unittest import TestCase, main
+from .Queue import Queue
 
-class TestQueue:
+class TestQueue(TestCase):
     def test_is_empty(self):
         """
         should return True when queue is empty and False when it is not
@@ -80,5 +80,6 @@ class TestQueue:
         d.dequeue()
         test = q.peek()
         self.assertIsNone(test)
+
 if __name__ == '__main__':
     main()
