@@ -4,7 +4,26 @@ from time import time
 from pprint import pprint
 
 class Block:
-    pass
+    def __init__(self, index, timestamp, transactions, proof, previous_hash):
+        self.index = index
+        self.timestamp = timestamp
+        self.transactions = transactions
+        self.proof = proof
+        self.previous_hash = previous_hash
+
+    def __str__(self):
+        return str(self.__dict__)
+
+    def hash(self):
+        # stringify self as ordered json
+        string_object = json.dumps(self.__dict__, sort_keys=True)
+        block_string = string_object.encode()
+
+        # hash json
+        raw_hash = hashlib.sha256(block_string)
+        digest = raw_hash.hexdigest()
+
+        return digest
 
 class Transaction:
     pass
@@ -29,13 +48,15 @@ class Blockchain:
         return hashlib.sha256(str(new_proof ** 2 - prev_proof ** 2).encode()).hexdigest()
 
     def new_block(self, proof, previous_hash=None):
-        block = {
-            'index': len(self.chain) + 1,
-            'timestamp': time(),
-            'transactions': self.pending_transactions,
-            'proof': proof,
-            'previous_hash': previous_hash or self.hash(self.last_block)
-        }
+        block = Block(len(self.chain) + 1, time(), self.pending_transactions,
+                          proof, previous_hash or self.last_block.hash())
+        # block = {
+        #     'index': len(self.chain) + 1,
+        #     'timestamp': time(),
+        #     'transactions': self.pending_transactions,
+        #     'proof': proof,
+        #     'previous_hash': previous_hash or self.hash(self.last_block)
+        # }
 
         self.pending_transactions = []
         self.chain.append(block)
@@ -49,7 +70,7 @@ class Blockchain:
             'amount': amount
         }
         self.pending_transactions.append(transactions)
-        return self.last_block['index'] - 1
+        return self.last_block.index - 1
 
     def hash(self, block):
         string_object = json.dumps(block, sort_keys=True)
@@ -61,7 +82,7 @@ class Blockchain:
         return hex_hash
 
     def proof_of_work(self, verbose=False):
-        previous_proof = self.last_block['proof']
+        previous_proof = self.last_block.proof
         new_proof = 1
         check_proof = False
         while check_proof is False:
@@ -84,12 +105,12 @@ class Blockchain:
             next_block = self.chain[i + 1]
             print(i, len(self.chain))
             # if the hashes don't line up, there is a mismatch
-            if next_block['previous_hash'] != self.hash(prev_block):
+            if next_block.previous_hash != prev_block.hash():
                 return False
 
             # check that the hashes match the algorithm
-            hash_check = Blockchain.hash_algorithm(prev_block['proof'],
-                                                   next_block['proof'])
+            hash_check = Blockchain.hash_algorithm(prev_block.proof,
+                                                   next_block.proof)
             # the hash needs to start with four zeros to be valid
             if hash_check[:4] != '0000':
                 return False
