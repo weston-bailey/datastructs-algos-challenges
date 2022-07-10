@@ -35,8 +35,11 @@ def main():
     # print(hashlib.sha256(encode).hexdigest())
     head = Node(0)
     one = Node(1, head.hash)
+    head.next = one
     two = Node(2, one.hash)
+    one.next = two
     three = Node(3, two.hash)
+    two.next = three
     print(head, one, two, three)
     print(Node.validate(one, two)) # True
     print(Node.validate(one, three)) # False
