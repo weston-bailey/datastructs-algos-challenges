@@ -1,7 +1,12 @@
 from unittest import TestCase, main
-from .Queue import Queue
+from .Queue import Node, Queue
 
 class TestQueue(TestCase):
+    def test_node(self):
+        n = Node(10)
+        self.assertEqual(10, n.value)
+        self.assertIsNone(n.next)
+
     def test_is_empty(self):
         """
         should return True when queue is empty and False when it is not
@@ -46,17 +51,19 @@ class TestQueue(TestCase):
         q.enqueue(0)
         q.enqueue(1)
         q.enqueue(2)
-        test = q.deqeue()
-        self.assertEqual(test, 0)
+        test = q.dequeue()
+        self.assertEqual(test.value, 0)
         self.assertEqual(2, len(q))
-        test = q.deqeue()
-        self.assertEqual(test, 1)
+        test = q.dequeue()
+        self.assertEqual(test.value, 1)
         self.assertEqual(1, len(q))
-        test = q.deqeue()
-        self.assertEqual(test, 2)
+        test = q.dequeue()
+        self.assertEqual(test.value, 2)
         self.assertEqual(0, len(q))
         self.assertIsNone(q.head)
         self.assertIsNone(q.tail)
+        q.dequeue()
+        self.assertEqual(0, len(q))
 
     def test_peek(self):
         """
@@ -67,17 +74,17 @@ class TestQueue(TestCase):
         q.enqueue(1)
         q.enqueue(2)
         test = q.peek()
-        self.assertEqual(test, 0)
+        self.assertEqual(test.value, 0)
         self.assertEqual(3, len(q))
         q.dequeue()
         test = q.peek()
-        self.assertEqual(test, 1)
+        self.assertEqual(test.value, 1)
         self.assertEqual(2, len(q))
         q.dequeue()
         test = q.peek()
-        self.assertEqual(test, 2)
+        self.assertEqual(test.value, 2)
         self.assertEqual(1, len(q))
-        d.dequeue()
+        q.dequeue()
         test = q.peek()
         self.assertIsNone(test)
 
