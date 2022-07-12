@@ -14,6 +14,9 @@ class Blockchain:
     def __str__(self):
         return str(self.chain)
 
+    def __len__(self):
+        return len(self.chain)
+
     @property
     def last_block(self):
         return self.chain[-1]
@@ -22,10 +25,31 @@ class Blockchain:
     def proof_algorithm(prev_proof, new_proof):
         return hashlib.sha256(str(new_proof ** 2 - prev_proof ** 2).encode()).hexdigest()
 
+    @staticmethod
+    def consensus(*args):
+        # remove all chains that do not pass validation
+        valid_chains = []
+        for chain in args:
+            if chain.validate_chain():
+                valid_chains.append(chain)
+
+        # if no chains are valid, return false
+        if len(valid_chains) == 0:
+            return False
+
+        # find the longest chain and return it
+        longest_chain = valid_chains[0]
+
+        for chain in valid_chains:
+            if len(chain) > len(longest_chain):
+                longest_chain = chain
+
+        return longest_chain
+
     def new_block(self, proof, previous_hash=None):
         # create a new block 
         block = {
-            'index': len(self.chain) + 1,
+            'index': len(self) + 1,
             'timestamp': time(),
             'transactions': self.pending_transactions,
             'proof': proof,
@@ -82,11 +106,11 @@ class Blockchain:
     def validate_chain(self):
         # loop over entire chain
         i = 0
-        while i <= len(self.chain) - 2:
+        while i <= len(self) - 2:
             # comparing the blocks in groups of two
             prev_block = self.chain[i]
             next_block = self.chain[i + 1]
-            print(i, len(self.chain))
+            print(i, len(self))
             # if the hashes don't line up, there is a mismatch
             if next_block['previous_hash'] != self.hash(prev_block):
                 return False
@@ -103,21 +127,35 @@ class Blockchain:
         # if we make it here, all hashes have checked and passed
         return True
 
+
 def main():
+    # create a blockchain
     bc = Blockchain()
     t1 = bc.new_transaction('bob', 'alice', 10)
     t2 = bc.new_transaction('frank', 'mary', 20)
+
+    # testing proof of work and transactions
+    proof = bc.proof_of_work()
+    print(proof)
+
+
     bc.new_block(bc.proof_of_work(verbose=True))
     t3 = bc.new_transaction('spam', 'eggs', 30)
     t4 = bc.new_transaction('bacon', 'sausage', 15)
     bc.new_block(bc.proof_of_work())
-    t5 = bc.new_transaction('ham', 'sausage', 30) 
+    t5 = bc.new_transaction('ham', 'sausage', 30)
     t6 = bc.new_transaction('bacon', 'sausage', 15)
     pprint(bc.chain)
     print(bc.validate_chain())
-    # print(bc.chain)
-    # proof = bc.proof_of_work()
-    # print(proof)
+
+    # testing validation
+    not_valid = Blockchain()
+    not_valid.new_transaction('eggs', 'spam', 30)
+    not_valid.new_block(123456)
+    old_chain = Blockchain()
+    old_chain.chain = bc.chain[:len(bc) - 2]
+    current_chain = Blockchain.consensus(bc, not_valid, old_chain)
+    pprint(current_chain.chain)
 
 if __name__ == '__main__':
     main()
