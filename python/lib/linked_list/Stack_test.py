@@ -20,13 +20,13 @@ class TestStack(TestCase):
         s = Stack()
         s.push(0)
         self.assertEqual(0, s.head.value)
-        self.asserEqual(1, len(s))
+        self.assertEqual(1, len(s))
         s.push(1)
-        self.assertEqual(1, s.head.next.value)
-        self.asserEqual(2, len(s))
+        self.assertEqual(1, s.head.value)
+        self.assertEqual(2, len(s))
         s.push(2)
-        self.assertEqual(2, s.head.next.next.value)
-        self.asserEqual(3, len(s))
+        self.assertEqual(2, s.head.value)
+        self.assertEqual(3, len(s))
 
     def test_pop(self):
         '''
@@ -52,9 +52,9 @@ class TestStack(TestCase):
         s = Stack()
         s.push(10)
         s.push(11)
-        self.assertEqual(11, s.peek)
-        self.assertEqual(11, s.peek)
-        self.assertEqual(11, s.peek)
+        self.assertEqual(11, s.peek())
+        self.assertEqual(11, s.peek())
+        self.assertEqual(11, s.peek())
 
     def test_contains(self):
         '''
