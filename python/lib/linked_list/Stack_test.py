@@ -17,19 +17,44 @@ class TestStack(TestCase):
         '''
         Stack.push() should add an item to the head to the head of the stack
         '''
-        pass
+        s = Stack()
+        s.push(0)
+        self.assertEqual(0, s.head.value)
+        self.asserEqual(1, len(s))
+        s.push(1)
+        self.assertEqual(1, s.head.next.value)
+        self.asserEqual(2, len(s))
+        s.push(2)
+        self.assertEqual(2, s.head.next.next.value)
+        self.asserEqual(3, len(s))
 
     def test_pop(self):
         '''
         Stack.pop() should remove the head item from the stack and return it
         '''
-        pass
+        s = Stack()
+        s.push(0)
+        s.push(1)
+        s.push(2)
+        test = s.pop()
+        self.assertEqual(2, test)
+        test = s.pop()
+        self.assertEqual(1, test)
+        test = s.pop()
+        self.assertEqual(0, test)
+        test = s.pop()
+        self.assertIsNone(test)
 
-    def test_peep(self):
+    def test_peek(self):
         '''
-        Stack.peep() should return the head without removing it
+        Stack.peek() should return the head without removing it
         '''
-        pass
+        s = Stack()
+        s.push(10)
+        s.push(11)
+        self.assertEqual(11, s.peek)
+        self.assertEqual(11, s.peek)
+        self.assertEqual(11, s.peek)
 
     def test_contains(self):
         '''
